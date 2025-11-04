@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.renu.model.Patient;
 import com.renu.service.PatientService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/patients")
 public class PatientController {
@@ -17,7 +19,7 @@ public class PatientController {
 	private PatientService patientService;
 
 	@PostMapping("/register")
-	public Patient register(@RequestBody Patient p) {
+	public Patient register(@RequestBody @Valid Patient p) {
 		return patientService.register(p);
 	}
 	
